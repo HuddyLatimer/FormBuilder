@@ -47,15 +47,20 @@ export function SettingsClient({ user }: SettingsClientProps) {
                 {activeTab === 'profile' && (
                     <div className="space-y-8">
                         <section className="rounded-[2.5rem] border border-white/5 bg-zinc-900/40 p-10 space-y-8 backdrop-blur-3xl">
-                            <div className="flex items-center gap-4">
-                                <div className="h-16 w-16 rounded-[2rem] bg-gradient-to-br from-blue-600 to-violet-600 flex items-center justify-center text-xl font-bold p-px shadow-2xl">
-                                    <div className="h-full w-full rounded-[1.9rem] bg-zinc-950 flex items-center justify-center">
-                                        {user.email?.charAt(0).toUpperCase()}
+                            <div className="flex items-center gap-6">
+                                <div className="relative group">
+                                    <div className="h-20 w-20 rounded-[2.5rem] bg-gradient-to-br from-blue-600 to-violet-600 p-px shadow-2xl transition-transform group-hover:scale-105 duration-500">
+                                        <div className="h-full w-full rounded-[2.4rem] bg-zinc-950 flex items-center justify-center overflow-hidden">
+                                            <img src="/marcus.png" alt="Profile" className="h-full w-full object-cover" />
+                                        </div>
+                                    </div>
+                                    <div className="absolute -bottom-1 -right-1 h-6 w-6 rounded-lg bg-emerald-500 border-4 border-[#0A0A0B] flex items-center justify-center">
+                                        <div className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
                                     </div>
                                 </div>
                                 <div>
-                                    <h2 className="text-xl font-bold">Authenticated Identity</h2>
-                                    <p className="text-sm text-zinc-500 font-medium">Your account profile managed via Supabase Auth.</p>
+                                    <h2 className="text-2xl font-bold tracking-tight text-white mb-1">Marcus Thorne</h2>
+                                    <p className="text-sm text-zinc-500 font-medium">Founding Engineer & System Architect</p>
                                 </div>
                             </div>
 

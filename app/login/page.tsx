@@ -157,17 +157,32 @@ export default function LoginPage({
                     </h2>
 
                     <div className="space-y-8 mt-16 max-w-md">
-                        <div>
-                            <p className="text-xl text-zinc-400 font-medium leading-relaxed">
+                        <div className="animate-in slide-in-from-right-4 duration-500 delay-150">
+                            <p className="text-xl text-zinc-400 font-medium leading-relaxed italic border-l-2 border-blue-500/30 pl-6">
                                 "Protocol is exactly what we needed to move away from rigid Google Forms for our internal intake."
                             </p>
                             <div className="mt-8 flex items-center gap-4">
-                                <div className="h-12 w-12 rounded-full bg-zinc-800 border border-white/10 flex items-center justify-center font-bold text-blue-400 overflow-hidden">
-                                    <img src="https://ui-avatars.com/api/?name=Alex+Chen&background=0D0D0D&color=3B82F6" alt="Avatar" className="h-full w-full object-cover" />
+                                <div className="h-12 w-12 rounded-full bg-zinc-800 border border-white/10 flex items-center justify-center font-bold text-blue-400 overflow-hidden shadow-2xl">
+                                    <img src="/marcus.png" alt="Marcus Thorne" className="h-full w-full object-cover" />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-bold text-white tracking-tight">Alex Chen</p>
+                                    <p className="text-sm font-bold text-white tracking-tight">Marcus Thorne</p>
                                     <p className="text-[11px] text-zinc-500 font-bold uppercase tracking-wider mt-0.5">Founding Engineer at Cloudscale</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="animate-in slide-in-from-right-4 duration-500 delay-300">
+                            <p className="text-xl text-zinc-400 font-medium leading-relaxed italic border-l-2 border-violet-500/30 pl-6">
+                                "The infrastructure-first approach to data collection has halved our deployment cycles."
+                            </p>
+                            <div className="mt-8 flex items-center gap-4">
+                                <div className="h-12 w-12 rounded-full bg-zinc-800 border border-white/10 flex items-center justify-center font-bold text-violet-400 overflow-hidden shadow-2xl">
+                                    <img src="/sarah.png" alt="Sarah Jenkins" className="h-full w-full object-cover" />
+                                </div>
+                                <div>
+                                    <p className="text-sm font-bold text-white tracking-tight">Sarah Jenkins</p>
+                                    <p className="text-[11px] text-zinc-500 font-bold uppercase tracking-wider mt-0.5">VP of Operations at NexaGlobal</p>
                                 </div>
                             </div>
                         </div>
