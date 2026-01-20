@@ -39,21 +39,27 @@ export async function createForm(prevState: any, formData: FormData) {
 }
 
 export async function getForms() {
-    const supabase = await createClient()
-    const { data: { user } } = await supabase.auth.getUser()
+    try {
+        const supabase = await createClient()
+        const { data: { user } } = await supabase.auth.getUser()
 
-    if (!user) return []
+        if (!user) return { forms: [], error: null }
 
-    // Only show forms belonging to the user
-    return await prisma.form.findMany({
-        where: { userId: user.id },
-        orderBy: { createdAt: 'desc' },
-        include: {
-            _count: {
-                select: { submissions: true }
+        // Only show forms belonging to the user
+        const forms = await prisma.form.findMany({
+            where: { userId: user.id },
+            orderBy: { createdAt: 'desc' },
+            include: {
+                _count: {
+                    select: { submissions: true }
+                }
             }
-        }
-    })
+        })
+        return { forms, error: null }
+    } catch (error: any) {
+        console.error('Error fetching forms:', error)
+        return { forms: [], error: error.message || 'Failed to connect to system database' }
+    }
 }
 
 export async function getFormById(id: string) {
