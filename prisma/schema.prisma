@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+}
+
+model Profile {
+  id        String   @id @default(uuid())
+  role      String   @default("member") // 'admin' | 'member'
+  email     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("profiles")
+}
+
+model Form {
+  id          String      @id @default(cuid())
+  userId      String
+  title       String
+  description String?
+  published   Boolean     @default(false)
+  urlSlug     String      @unique @default(cuid())
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  
+  fields      FormField[]
+  submissions Submission[]
+
+  @@map("forms")
+}
+
+model FormField {
+  id          String @id @default(cuid())
+  formId      String
+  form        Form   @relation(fields: [formId], references: [id], onDelete: Cascade)
+  type        String // 'text' | 'email' | 'number' | 'textarea' | 'select' | 'checkbox'
+  label       String
+  placeholder String?
+  required    Boolean @default(false) 
+  order       Int
+  options     Json? // For select/checkbox options
+  
+  submissionValues SubmissionValue[]
+
+  @@map("form_fields")
+}
+
+model Submission {
+  id        String            @id @default(cuid())
+  formId    String
+  form      Form              @relation(fields: [formId], references: [id], onDelete: Cascade)
+  createdAt DateTime          @default(now())
+  
+  values    SubmissionValue[]
+
+  @@map("submissions")
+}
+
+model SubmissionValue {
+  id           String     @id @default(cuid())
+  submissionId String
+  submission   Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  fieldId      String
+  field        FormField  @relation(fields: [fieldId], references: [id])
+  value        String
+
+  @@map("submission_values")
+}
