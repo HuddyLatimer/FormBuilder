@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://protocolforms.netlify.app"),
   title: "Protocol | High-Fidelity Data Intake",
   description: "Enterprise-grade form building and data collection infrastructure.",
   icons: {

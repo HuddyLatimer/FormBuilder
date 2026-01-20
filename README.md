@@ -2,6 +2,8 @@
 
 ![Protocol Dashboard](./public/dashboard.png)
 
+**Live Demo**: [protocolforms.netlify.app](https://protocolforms.netlify.app)
+
 A high-fidelity, infrastructure-grade system for designing, deploying, and analyzing data intake modules. Built for speed, security, and developer productivity.
 
 ## Architecture
@@ -62,7 +64,7 @@ Customize the visual signature of your forms and define behavioral rules. Each f
 
 ```bash
 # Clone and install
-git clone <repo-url>
+git clone https://github.com/HuddyLatimer/FormBuilder
 cd web
 npm install
 
